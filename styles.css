@@ -1,4 +1,11 @@
-/* Estilos base */
+/* Estilos minimalistas pero cálidos */
+:root {
+    --rosa: #ffb3bf;
+    --rosa-oscuro: #ff758f;
+    --gris: #4a4a4a;
+    --blanco: #fff9f9;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,180 +13,152 @@
 }
 
 body {
-    font-family: 'Playfair Display', serif;
-    color: #5a2d2d;
+    font-family: 'Manrope', sans-serif;
+    color: var(--gris);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
+    background: linear-gradient(45deg, #fff0f3, #ffe6eb);
 }
 
-/* Fondo mágico animado */
-.magic-gradient {
+.background {
     position: fixed;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-        45deg,
-        #ff9a9e,
-        #fad0c4,
-        #a8e6cf,
-        #d4fc79
-    );
-    background-size: 400% 400%;
-    animation: gradientMove 15s ease infinite;
-    z-index: -2;
-}
-
-@keyframes gradientMove {
-    0% { transform: translate(-50%, -50%) rotate(0deg); }
-    50% { transform: translate(-50%, -50%) rotate(180deg); }
-    100% { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-/* Efecto de niebla */
-.fog {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    width: 200vw;
+    height: 200vh;
+    background: radial-gradient(circle, var(--rosa) 0%, transparent 70%);
+    opacity: 0.1;
+    animation: float 20s infinite linear;
     z-index: -1;
 }
 
-/* Contenedor principal */
 .container {
-    position: relative;
-    text-align: center;
     background: rgba(255, 255, 255, 0.95);
-    padding: 3rem;
-    border-radius: 25px;
-    margin: 2rem;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-    border: 2px solid #ff6f61;
-    transform: translateY(0);
-    animation: float 3s ease-in-out infinite;
-    max-width: 600px;
-    margin: auto;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 500px;
+    margin: 1rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 h1 {
-    font-family: 'Parisienne', cursive;
-    font-size: 3.5rem;
-    margin-bottom: 1.5rem;
-    color: #ff4d6d;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    color: var(--rosa-oscuro);
+    margin-bottom: 1rem;
 }
 
-.message p {
-    font-family: 'Quicksand', sans-serif;
-    font-size: 1.4rem;
-    margin: 1rem 0;
-    color: #5a2d2d;
+.line {
+    width: 50px;
+    height: 2px;
+    background: var(--rosa-oscuro);
+    margin: 0 auto;
+    opacity: 0.5;
+}
+
+.message {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--gris);
 }
 
 .highlight {
-    color: #ff6f61;
-    font-weight: bold;
+    color: var(--rosa-oscuro);
+    font-weight: 700;
 }
 
 .poema {
-    font-family: 'Parisienne', cursive;
-    font-size: 1.5rem;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.4rem;
+    text-align: center;
     margin: 2rem 0;
-    line-height: 1.8;
-    color: #7a3b3b;
+    color: var(--rosa-oscuro);
+    line-height: 1.4;
 }
 
-/* Botones */
 .buttons {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
+    display: grid;
+    gap: 1rem;
     margin-top: 2rem;
 }
 
 button {
-    padding: 1.2rem 2.5rem;
-    font-size: 1.2rem;
+    padding: 1.2rem;
     border: none;
-    border-radius: 50px;
+    border-radius: 15px;
+    font-size: 1.1rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: bold;
-}
-
-#siButton {
-    background: linear-gradient(45deg, #ff6f61, #ff4d6d);
-    color: white;
-    box-shadow: 0 4px 15px rgba(255, 111, 97, 0.4);
-}
-
-#siButton:hover {
-    transform: scale(1.1) rotate(3deg);
-    box-shadow: 0 6px 20px rgba(255, 111, 97, 0.6);
-}
-
-#noButton {
-    background: linear-gradient(45deg, #a8e6cf, #7fd8b6);
-    color: white;
-    box-shadow: 0 4px 15px rgba(168, 230, 207, 0.4);
-}
-
-#noButton:hover {
-    transform: scale(1.1) rotate(-3deg);
-}
-
-/* Corazones animados */
-.hearts {
-    position: fixed;
     width: 100%;
-    height: 100%;
-    pointer-events: none;
 }
 
-.heart {
-    position: absolute;
+#siBtn {
+    background: var(--rosa-oscuro);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 117, 143, 0.3);
+}
+
+#siBtn:active {
+    transform: scale(0.98);
+}
+
+#noBtn {
+    background: transparent;
+    color: var(--gris);
+    border: 2px solid var(--rosa);
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(50px, 50px); }
+    50% { transform: translate(-30px, 70px); }
+    75% { transform: translate(70px, -30px); }
+    100% { transform: translate(0, 0); }
+}
+
+.corazon-oculto {
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
     font-size: 2rem;
-    animation: heartFloat 6s linear infinite;
-    opacity: 0.7;
 }
 
 @keyframes heartFloat {
     0% {
-        transform: translateY(100vh) rotate(0deg);
-        opacity: 0;
+      transform: scale(0.8) translateY(0);
+      opacity: 1;
     }
     50% {
-        opacity: 1;
+      transform: scale(1.2) translateY(-20px);
+      opacity: 0.7;
     }
     100% {
-        transform: translateY(-100vh) rotate(360deg);
-        opacity: 0;
+      transform: scale(1) translateY(-40px);
+      opacity: 0;
     }
-}
-
-/* Fuegos artificiales */
-.fireworks {
-    position: fixed;
-    width: 100%;
-    height: 100%;
+  }
+  
+  /* Asegúrate de tener una clase base para el corazón (puedes ajustar el tamaño y el background) */
+  .corazon-oculto {
+    width: 20px;
+    height: 20px;
+    background: url('ruta/a/tu/imagen-de-corazon.svg') no-repeat center center;
+    background-size: contain;
+    opacity: 0;
     pointer-events: none;
-}
-
-.firework {
     position: absolute;
-    width: 10px;
-    height: 10px;
-    background: #ff6f61;
-    border-radius: 50%;
-    animation: explode 1s ease-out;
-}
-
-@keyframes explode {
-    0% { transform: scale(1); opacity: 1; }
-    100% { transform: scale(20); opacity: 0; }
-}
+  }
+  
